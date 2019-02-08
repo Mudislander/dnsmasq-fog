@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  dnsmasq-proxy:
+    image: linkat/dnsmasq-fog:1.0.0
+    container_name: dnsmasq-fog
+    network_mode: host
+    environment:
+      - TFTP_SERVER_IP=192.168.1.225
+    cap_add:
+      - NET_ADMIN
+    restart: always
