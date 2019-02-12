@@ -43,8 +43,16 @@ The following environment variables must be defined:
 ### docker-run
 
 ```
+docker run -d --restart=always --cap-add=NET_ADMIN -p 67:67 -p 4011:4011 -e TFTP_SERVER_IP=192.168.1.225 --name dnsmasq-fog linkat/dnsmasq-fog
+```
+
+
+If you are in local development, maybe you need to set the network in host mode:
+
+```
 docker run -d --restart=always --network="host" --cap-add=NET_ADMIN -e TFTP_SERVER_IP=192.168.1.225 --name dnsmasq-fog linkat/dnsmasq-fog
 ```
+
 
 ### docker-compose
 
